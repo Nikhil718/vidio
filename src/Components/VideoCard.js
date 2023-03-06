@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { FaUserCircle } from "react-icons/fa";
 
-const VideoCard = ({ snippet, statistics }) => {
+const VideoCard = ({ snippet, statistics, videoType }) => {
   const isVisible = useSelector((store) => store.LeftHamburger.isVisible);
-  var title =
-    snippet.title.length > 60
+  var Title =
+    snippet?.title?.length > 60
       ? snippet.title.substring(0, 70) + "....."
       : snippet.title;
 
@@ -19,10 +20,20 @@ const VideoCard = ({ snippet, statistics }) => {
       <img
         className="rounded-md"
         alt="thumbnail"
-        src={snippet.thumbnails.medium.url}
+        src={snippet?.thumbnails?.medium?.url}
       />
-      <h1 className="font-bold">{title}</h1>
-      <h1>{statistics?.viewCount} Views</h1>
+      <div className="flex">
+        <FaUserCircle className="m-1" /> <h1>{snippet.channelTitle}</h1>
+      </div>
+      <div className="flex">
+        <h1 className="font-semibold">{Title}</h1>
+        {videoType == "live" ? (
+          <h1 className="bg-red-500 text-center rounded-lg w-9 h-7 p-[0.2rem] ml-1 text-white">
+            {snippet?.liveBroadcastContent.toUpperCase()}
+          </h1>
+        ) : null}
+      </div>
+      {videoType == "popular" ? <h1>{statistics?.viewCount} Views</h1> : null}
     </div>
   );
 };

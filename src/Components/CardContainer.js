@@ -24,11 +24,12 @@ const CardContainer = () => {
     <>
       <TopButtonList />
       <div className="flex flex-wrap my-14 p-3  ">
-        {allVideos.map((video) => (
-          <Link to={"/watch?v=" + video.id} key={video.id}>
-            <VideoCard {...video} />
-          </Link>
-        ))}
+        {allVideos &&
+          allVideos.map((video) => (
+            <Link to={"/watch?v=" + video.id} key={video.id}>
+              <VideoCard videoType="popular" {...video} />
+            </Link>
+          ))}
       </div>
     </>
   );

@@ -2,7 +2,7 @@ import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
 
 const buttonList = [
-  "Live",
+  "All",
   "Cricket",
   "Football",
   "Science",
@@ -40,11 +40,11 @@ const TopButtonList = () => {
   const isVisible = useSelector((store) => store.LeftHamburger.isVisible);
   const slideLeft = () => {
     var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 300;
+    slider.scrollLeft = slider.scrollLeft - 300;
   };
   const slideRight = () => {
     var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 300;
+    slider.scrollLeft = slider.scrollLeft + 300;
   };
   return (
     <div
@@ -57,15 +57,15 @@ const TopButtonList = () => {
       <div className="p-3">
         <BsChevronDoubleLeft
           onClick={() => slideLeft()}
-          className="absolute left-0 top-4 bg-white cursor-pointer opacity-50 hover:opacity-100"
+          className="absolute left-0 top-4 bg-white cursor-pointer opacity-50 hover:opacity-100 hover:scale-105"
           size={20}
         />
         <BsChevronDoubleRight
           onClick={() => slideRight()}
           className={
             isVisible
-              ? "absolute left-[80rem] top-4 bg-white cursor-pointer opacity-50 hover:opacity-100"
-              : "absolute left-[1436px] top-4 bg-white cursor-pointer opacity-50 hover:opacity-100"
+              ? "absolute left-[80rem] top-4 bg-white cursor-pointer opacity-50 hover:opacity-100 hover:scale-105"
+              : "absolute left-[1436px] top-4 bg-white cursor-pointer opacity-50 hover:opacity-100 hover:scale-105"
           }
           size={20}
         />
@@ -75,7 +75,7 @@ const TopButtonList = () => {
         className=" overflow-y-auto flex flex-row gap-2 scrollbar-hide scroll-smooth"
       >
         {buttonList.map((item, i) => (
-          <h1 key={i} className="bg-gray-100 rounded-lg inline-block p-2 m-2">
+          <h1 key={i} className="bg-gray-100 rounded-lg inline-block p-2 m-2 ">
             {item}
           </h1>
         ))}

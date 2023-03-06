@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CardContainer from "./Components/CardContainer";
+import LiveVideos from "./Components/LiveVideos";
+import SearchedVideos from "./Components/SearchedVideos";
 import WatchPage from "./Components/WatchPage";
 import Body from "./Layout/Body";
 import Header from "./Layout/Header";
@@ -17,6 +19,14 @@ const appRouter = createBrowserRouter([
         path: "watch",
         element: <WatchPage />,
       },
+      {
+        path: "results",
+        element: <SearchedVideos />,
+      },
+      {
+        path: "live",
+        element: <LiveVideos />,
+      },
     ],
   },
 ]);
@@ -24,7 +34,6 @@ const appRouter = createBrowserRouter([
 function App() {
   return (
     <div className="App">
-      <Header />
       <RouterProvider router={appRouter} />
     </div>
   );
