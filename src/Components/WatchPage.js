@@ -3,14 +3,20 @@ import { useSearchParams } from "react-router-dom";
 import { VIDEO_BY_ID } from "./Config/Constant";
 import { FaUserCircle } from "react-icons/fa";
 import { AiFillEye, AiFillLike } from "react-icons/ai";
+import { RiSendPlaneFill } from "react-icons/ri";
 import SuggesionVideos from "./SuggesionVideos";
 import CommentsSection from "./CommentsSection";
 import LiveChat from "./LiveChat";
+import { useDispatch } from "react-redux";
+import { addMessage } from "../Shared/ChatSlice";
+import User from "../Assets/Images/user.jpg";
 
 const WatchPage = () => {
   const [searchParms, setSearchParams] = useSearchParams();
   const [videoDetails, setVideoDetails] = useState("");
   const [viewDesc, setViewDesc] = useState(false);
+  const [text, setText] = useState("");
+  const dispatch = useDispatch();
   const ID = searchParms.get("v");
   async function getVideoDetails() {
     const data = await fetch(VIDEO_BY_ID + ID);
@@ -23,7 +29,7 @@ const WatchPage = () => {
   }, [ID]);
   return (
     videoDetails && (
-      <div className="flex">
+      <div className="flex ">
         <div>
           <div className="p-5">
             <iframe
@@ -73,12 +79,47 @@ const WatchPage = () => {
             <CommentsSection />
           ) : null}
         </div>
-        <div>
-          <div className="p-2 m-2">
-            {videoDetails.snippet?.liveBroadcastContent === "live" ? (
-              <LiveChat />
-            ) : null}
-          </div>
+        <div className="w-full">
+          {videoDetails.snippet?.liveBroadcastContent === "live" ? (
+            <div className=" py-5 mx-2">
+              <h1 className="font-bold p-2 text-center rounded-t-lg bg-slate-200">
+                Top chats
+              </h1>
+              <div className="  h-[400px] border border-gray-400 overflow-y-scroll flex flex-col-reverse ">
+                <LiveChat />
+              </div>
+              <div className="w-full flex px-1 border border-slate-300 rounded-b-lg">
+                <input
+                  className=" w-full p-2 border-none outline-none"
+                  type="text"
+                  value={text}
+                  placeholder="say something..."
+                  onChange={(e) => setText(e.target.value)}
+                />
+                <button
+                  onClick={() => {
+                    dispatch(
+                      addMessage({
+                        dp: (
+                          <img
+                            className="rounded-full h-6"
+                            alt="user"
+                            src={User}
+                          />
+                        ),
+                        name: "Nikhil Naik",
+                        message: text,
+                      })
+                    );
+                    setText("");
+                  }}
+                >
+                  <RiSendPlaneFill size={25} />
+                </button>
+              </div>
+            </div>
+          ) : null}
+
           <SuggesionVideos setId={setSearchParams} videoId={ID} />
         </div>
       </div>

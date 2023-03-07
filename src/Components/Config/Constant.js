@@ -5,8 +5,9 @@ export const YOUTUBE_SEARCH_API =
 export const YOUTUBE_SEARCHED_VIDEO_API =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&regionCode=IN&type=video&key=AIzaSyCwBPKjXfHox6M8a9AhkzP9mCLDmQJMzTw&q=";
 export const VIDEO_BY_ID =
-  " https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=AIzaSyCwBPKjXfHox6M8a9AhkzP9mCLDmQJMzTw&id=";
+  " https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=AIzaSyAeIG1Bvmz6nVlcpboYG4ZYxcLHGPuNeTM&id=";
 export const LIVE_VIDEO_API =
-  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&eventType=live&maxResults=50&q=gaming&type=video&key=AIzaSyCwBPKjXfHox6M8a9AhkzP9mCLDmQJMzTw&regionCode=IN";
+  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&eventType=live&maxResults=50&q=gaming&type=video&key=AIzaSyAeIG1Bvmz6nVlcpboYG4ZYxcLHGPuNeTM&regionCode=IN";
 export const RELATED_VIDEOD_API =
   " https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&regionCode=IN&type=video&key=AIzaSyCwBPKjXfHox6M8a9AhkzP9mCLDmQJMzTw&relatedToVideoId=";
+export const textLimit = 12;

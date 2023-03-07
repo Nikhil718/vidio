@@ -12,7 +12,28 @@ const commentsList = [
         name: "Nikhil Naik",
         comment:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        replies: [],
+        replies: [
+          {
+            name: "Nikhil Naik",
+            comment:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            replies: [
+              {
+                name: "Nikhil Naik",
+                comment:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                replies: [
+                  {
+                    name: "Nikhil Naik",
+                    comment:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    replies: [],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         name: "Nikhil Naik",
@@ -23,7 +44,14 @@ const commentsList = [
             name: "Nikhil Naik",
             comment:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            replies: [],
+            replies: [
+              {
+                name: "Nikhil Naik",
+                comment:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                replies: [],
+              },
+            ],
           },
           {
             name: "Nikhil Naik",
@@ -32,12 +60,6 @@ const commentsList = [
             replies: [],
           },
         ],
-      },
-      {
-        name: "Nikhil Naik",
-        comment:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        replies: [],
       },
     ],
   },
@@ -101,26 +123,7 @@ const commentsList = [
       },
     ],
   },
-  {
-    name: "Nikhil Naik",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    replies: [
-      {
-        name: "Nikhil Naik",
-        comment:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        replies: [
-          {
-            name: "Nikhil Naik",
-            comment:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            replies: [],
-          },
-        ],
-      },
-    ],
-  },
+
   {
     name: "Nikhil Naik",
     comment:
