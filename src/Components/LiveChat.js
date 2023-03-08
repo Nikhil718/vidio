@@ -7,7 +7,7 @@ import LiveMessage from "./LiveMessage";
 
 const LiveChat = () => {
   const messages = useSelector((Store) => Store.Chat.messages);
-  console.log(messages);
+
   const dispatch = useDispatch();
   useEffect(() => {
     const i = setInterval(() => {

@@ -22,7 +22,6 @@ const WatchPage = () => {
     const data = await fetch(VIDEO_BY_ID + ID);
     const json = await data.json();
     setVideoDetails(json.items[0]);
-    console.log(json.items[0]);
   }
   useEffect(() => {
     getVideoDetails();

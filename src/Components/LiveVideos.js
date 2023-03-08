@@ -10,7 +10,7 @@ const LiveVideos = () => {
   async function getLiveVideos() {
     const data = await fetch(LIVE_VIDEO_API);
     const json = await data.json();
-    console.log(json.items);
+
     setLiveVideos(json.items);
   }
   useEffect(() => {

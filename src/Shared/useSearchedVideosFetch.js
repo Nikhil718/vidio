@@ -8,7 +8,7 @@ const useSearchedVideosFetch = (query, page) => {
     try {
       const data = await fetch(YOUTUBE_SEARCHED_VIDEO_API + query);
       const json = await data.json();
-      console.log(json);
+
       setSearchedList(json.items);
     } catch (err) {
       console.log(err);

@@ -7,9 +7,8 @@ const SuggesionVideos = ({ setId, videoId }) => {
   async function getSuggesionVideos() {
     const data = await fetch(RELATED_VIDEOD_API + videoId);
     const json = await data.json();
-    console.log(videoId);
+
     setAllRelatedVideos(json.items);
-    console.log(json.items);
   }
   useEffect(() => {
     getSuggesionVideos();

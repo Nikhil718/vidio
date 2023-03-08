@@ -10,7 +10,7 @@ const SearchedVideos = () => {
   const [page, setPage] = useState(1);
   const query = searchparam.get("search_query");
   const { searchedList } = useSearchedVideosFetch(query);
-  console.log(searchedList);
+
   const loader = useRef(null);
 
   return (

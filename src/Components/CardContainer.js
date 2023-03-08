@@ -11,8 +11,6 @@ const CardContainer = () => {
     const data = await fetch(YOUTUBE_VIDEO_URL);
     const json = await data.json();
     setAllVideos(json.items);
-
-    console.log(json.items);
   }
 
   useEffect(() => {
