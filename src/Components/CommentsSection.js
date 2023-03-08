@@ -159,7 +159,7 @@ const commentsList = [
 ];
 const Comments = ({ name, comment, replies }) => {
   return (
-    <div className="px-2 my-1  mx-1 bg-slate-200 rounded-lg  ">
+    <div className="px-2 my-1  mx-1    ">
       <div className="flex">
         <FaUserCircle className="m-1" />
         <p className="font-bold">{name}</p>

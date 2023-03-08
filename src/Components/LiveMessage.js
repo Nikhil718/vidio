@@ -5,7 +5,7 @@ const LiveMessage = ({ dp, name, message }) => {
   return (
     <div>
       <div className="flex p-2 text-sm ml-2 ">
-        {dp == "" ? (
+        {dp === "" ? (
           <FaUserCircle className="my-1" size={20} />
         ) : (
           <span>{dp}</span>

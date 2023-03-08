@@ -22,40 +22,40 @@ const LeftHamburger = () => {
   return (
     <div className="w-48 p-3 h-full bg-gray-100 shadow-xl fixed ">
       <ul className="p-1">
-        <li className="flex p-1">
+        <li className="flex p-1 hover:bg-slate-200 rounded-lg">
           <AiFillHome className="m-1" />
           <Link to="/">Home</Link>
         </li>
-        <li className="flex p-1">
+        <li className="flex p-1 cursor-pointer">
           <MdSlowMotionVideo className="m-1" /> Shorts
         </li>
-        <li className="flex p-1">
+        <li className="flex p-1 cursor-pointer">
           <AiFillVideoCamera className="m-1" />
           Subscriptions
         </li>
-        <li className="flex p-1">
+        <li className="flex p-1 hover:bg-slate-200 rounded-lg ">
           <MdOutlineLiveTv className="m-1" />
           <Link to="/live">Live</Link>
         </li>
         <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-2" />
-        <li className="flex p-1">
+        <li className="flex p-1 cursor-pointer">
           <MdVideoLibrary className="m-1" />
           Library
         </li>
-        <li className="flex p-1">
+        <li className="flex p-1 cursor-pointer">
           <MdHistory className="m-1" />
           History
         </li>
-        <li className="flex p-1">
+        <li className="flex p-1 cursor-pointer">
           <MdVideocam className="m-1" />
           Videos
         </li>
 
-        <li className="flex p-1">
+        <li className="flex p-1 cursor-pointer">
           <MdMovieFilter className="m-1" />
           Movies
         </li>
-        <li className="flex p-1">
+        <li className="flex p-1 cursor-pointer">
           <AiFillLike className="m-1" />
           Liked
         </li>

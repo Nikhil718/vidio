@@ -60,16 +60,28 @@ const Header = () => {
       </div>
       <div>
         <div className="col-span-10 px-80 mt-2">
-          <input
-            className="w-[30rem] border-2 border-solid p-2 rounded-l-full"
-            type="text"
-            placeholder="Search any video"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setSearchQueryVisible(true)}
-            // onBlur={() => setSearchQueryVisible(false)}
-          />
-          <button className="bg-gray-200 rounded-r-full p-2 m-1">🔍</button>
+          <div className="flex h-11">
+            <div className=" flex w-[30rem] border-2 border-solid p-2 rounded-l-full">
+              <input
+                className="w-[29rem] p-2 rounded-l-full outline-none border-none"
+                type="text"
+                placeholder="Search any video"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setSearchQueryVisible(true)}
+                // onBlur={() => setSearchQueryVisible(false)}
+              />
+              {searchQuery && (
+                <span
+                  onClick={() => setSearchQuery("")}
+                  className="p-1  opacity-50 hover:bg-slate-200 rounded-full cursor-pointer"
+                >
+                  X
+                </span>
+              )}
+            </div>
+            <button className="bg-gray-200 rounded-r-full p-2 m-1">🔍</button>
+          </div>
           {searchQueryVisible && (
             <div className="  rounded-lg w-[30rem] fixed bg-white">
               <ul>

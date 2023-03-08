@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { RELATED_VIDEOD_API } from "./Config/Constant";
 import { FaUserCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const SuggesionVideos = ({ setId, videoId }) => {
   const [allRelatedVideos, setAllRelatedVideos] = useState([]);
@@ -34,7 +33,7 @@ const SuggesionVideos = ({ setId, videoId }) => {
               ) : (
                 <h1>{video.snippet.title}</h1>
               )}
-              <div className="flex">
+              <div className="flex mt-2">
                 <FaUserCircle className="m-1" />{" "}
                 <h1>{video.snippet.channelTitle}</h1>
               </div>

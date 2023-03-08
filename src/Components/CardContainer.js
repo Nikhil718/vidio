@@ -23,7 +23,7 @@ const CardContainer = () => {
   ) : (
     <>
       <TopButtonList />
-      <div className="flex flex-wrap my-14 p-3  ">
+      <div className="flex flex-wrap my-14 p-3 font-serif ">
         {allVideos &&
           allVideos.map((video) => (
             <Link to={"/watch?v=" + video.id} key={video.id}>

@@ -298,7 +298,6 @@ export function sentenceGenerate() {
     verbs[rand4] +
     nouns[rand6] +
     " " +
-    emoji[rand5] +
-    "."
+    emoji[rand5]
   );
 }
