@@ -1,4 +1,3 @@
-import { KEY } from "./config";
 var API_KEY = process.env.API_KEY;
 
 export const YOUTUBE_VIDEO_URL =
