@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addWatchedVideos } from "../Shared/HistorySlice";
 import { YOUTUBE_VIDEO_URL } from "./Config/Constant";
 import Shimmer from "./Shimmer";
 import TopButtonList from "./TopButtonList";
@@ -7,6 +9,15 @@ import VideoCard from "./VideoCard";
 
 const CardContainer = () => {
   const [allVideos, setAllVideos] = useState([]);
+  const dispatch = useDispatch();
+  const addToHistory = (video) => {
+    dispatch(
+      addWatchedVideos({
+        id: video.id,
+        snippet: video.snippet,
+      })
+    );
+  };
   async function getAllVideos() {
     const data = await fetch(YOUTUBE_VIDEO_URL);
     const json = await data.json();
@@ -24,7 +35,11 @@ const CardContainer = () => {
       <div className="flex flex-wrap my-14 p-3 font-serif ">
         {allVideos &&
           allVideos.map((video) => (
-            <Link to={"/watch?v=" + video.id} key={video.id}>
+            <Link
+              onClick={() => addToHistory(video)}
+              to={"/watch?v=" + video.id}
+              key={video.id}
+            >
               <VideoCard videoType="popular" {...video} />
             </Link>
           ))}

@@ -7,7 +7,7 @@ import { toggleHamburger } from "../Shared/LeftHamburgerSlice";
 import { CiSearch } from "react-icons/ci";
 import { YOUTUBE_SEARCH_API } from "../Components/Config/Constant";
 import { Link } from "react-router-dom";
-import { MdNotificationsActive } from "react-icons/md";
+import { MdNotificationsActive, MdFavorite } from "react-icons/md";
 import { cacheResults } from "../Shared/SearchSlice";
 import Store from "../Shared/Store";
 
@@ -71,12 +71,12 @@ const Header = () => {
                 // onBlur={() => setSearchQueryVisible(false)}
               />
               {searchQuery && (
-                <span
+                <h1
                   onClick={() => setSearchQuery("")}
-                  className="p-1  opacity-50 hover:bg-slate-200 rounded-full cursor-pointer"
+                  className="mx-1 p-1 opacity-50 hover:bg-slate-200 rounded-full cursor-pointer"
                 >
                   X
-                </span>
+                </h1>
               )}
             </div>
             <button className="bg-gray-200 rounded-r-full p-2 m-1">🔍</button>
@@ -103,7 +103,10 @@ const Header = () => {
         </div>
       </div>
       <div className="flex col-span-1">
+        <MdFavorite className="m-4 cursor-pointer" size={25} />
+
         <MdNotificationsActive className="m-4" size={25} />
+
         <img
           className="rounded-full h-9 m-2 cursor-pointer"
           alt="user"

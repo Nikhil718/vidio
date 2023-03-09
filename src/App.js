@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CardContainer from "./Components/CardContainer";
+import History from "./Components/History";
 import LiveVideos from "./Components/LiveVideos";
 import SearchedVideos from "./Components/SearchedVideos";
 import WatchPage from "./Components/WatchPage";
@@ -26,6 +27,10 @@ const appRouter = createBrowserRouter([
       {
         path: "live",
         element: <LiveVideos />,
+      },
+      {
+        path: "history",
+        element: <History />,
       },
     ],
   },

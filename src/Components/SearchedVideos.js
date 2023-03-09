@@ -10,14 +10,15 @@ const SearchedVideos = () => {
   const [page, setPage] = useState(1);
   const query = searchparam.get("search_query");
   const { searchedList } = useSearchedVideosFetch(query);
+  console.log(searchedList);
 
   const loader = useRef(null);
 
   return (
     <div>
-      {searchedList.map((video) => (
-        <Link to={"/watch?v=" + video.id.videoId} key={video.id.videoId}>
-          <SearchedVideoCards {...video} />
+      {searchedList.map((item) => (
+        <Link to={"/watch?v=" + item.id.videoId} key={item.id.videoId}>
+          <SearchedVideoCards videoType="searched" video={item} />
         </Link>
       ))}
 

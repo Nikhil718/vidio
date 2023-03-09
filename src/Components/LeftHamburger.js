@@ -29,10 +29,12 @@ const LeftHamburger = () => {
         <li className="flex p-1 cursor-pointer">
           <MdSlowMotionVideo className="m-1" /> Shorts
         </li>
-        <li className="flex p-1 cursor-pointer">
-          <AiFillVideoCamera className="m-1" />
-          Subscriptions
-        </li>
+        <Link to="/history">
+          <li className="flex p-1 hover:bg-slate-200 rounded-lg">
+            <MdHistory className="m-1" />
+            History
+          </li>
+        </Link>
         <li className="flex p-1 hover:bg-slate-200 rounded-lg ">
           <MdOutlineLiveTv className="m-1" />
           <Link to="/live">Live</Link>
@@ -43,9 +45,10 @@ const LeftHamburger = () => {
           Library
         </li>
         <li className="flex p-1 cursor-pointer">
-          <MdHistory className="m-1" />
-          History
+          <AiFillVideoCamera className="m-1" />
+          Subscriptions
         </li>
+
         <li className="flex p-1 cursor-pointer">
           <MdVideocam className="m-1" />
           Videos
