@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-import CardContainer from "../Components/CardContainer";
+
 import LeftHamburger from "../Components/LeftHamburger";
 
-import WatchPage from "../Components/WatchPage";
 import Header from "./Header";
 
 const Body = () => {

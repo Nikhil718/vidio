@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AiFillHome, AiFillVideoCamera, AiFillLike } from "react-icons/ai";
@@ -13,10 +13,6 @@ import {
 } from "react-icons/md";
 
 const LeftHamburger = () => {
-  const [isActive, setIsActive] = useState(false);
-  const handleClick = (event) => {
-    setIsActive((current) => !current);
-  };
   const isVisible = useSelector((Store) => Store.LeftHamburger.isVisible);
   if (isVisible === false) return null;
   return (

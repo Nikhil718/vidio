@@ -9,7 +9,6 @@ import { YOUTUBE_SEARCH_API } from "../Components/Config/Constant";
 import { Link } from "react-router-dom";
 import { MdNotificationsActive, MdFavorite } from "react-icons/md";
 import { cacheResults } from "../Shared/SearchSlice";
-import Store from "../Shared/Store";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -22,6 +21,17 @@ const Header = () => {
     setSearchQueryVisible(false);
   };
   useEffect(() => {
+    async function getSearchSuggession() {
+      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+      const json = await data.json();
+      setSuggestions(json[1]);
+
+      dispatch(
+        cacheResults({
+          [searchQuery]: json[1],
+        })
+      );
+    }
     const timer = setTimeout(() => {
       if (searchCache[searchQuery]) {
         setSuggestions(searchCache[searchQuery]);
@@ -32,19 +42,7 @@ const Header = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [searchQuery]);
-
-  async function getSearchSuggession() {
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-    const json = await data.json();
-    setSuggestions(json[1]);
-
-    dispatch(
-      cacheResults({
-        [searchQuery]: json[1],
-      })
-    );
-  }
+  }, [searchQuery, searchCache, dispatch]);
 
   return (
     <div className="grid grid-flow-col shadow-lg p-3 sticky top-0 z-40 bg-white">

@@ -5,7 +5,6 @@ import LiveVideos from "./Components/LiveVideos";
 import SearchedVideos from "./Components/SearchedVideos";
 import WatchPage from "./Components/WatchPage";
 import Body from "./Layout/Body";
-import Header from "./Layout/Header";
 
 const appRouter = createBrowserRouter([
   {

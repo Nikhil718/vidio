@@ -3,6 +3,7 @@ import { RELATED_VIDEOD_API } from "./Config/Constant";
 import { FaUserCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addWatchedVideos } from "../Shared/HistorySlice";
+import { timeAgo } from "./Config/helper";
 
 const SuggesionVideos = ({ setId, videoId }) => {
   const [allRelatedVideos, setAllRelatedVideos] = useState([]);
@@ -16,13 +17,14 @@ const SuggesionVideos = ({ setId, videoId }) => {
       })
     );
   };
-  async function getSuggesionVideos() {
-    const data = await fetch(RELATED_VIDEOD_API + videoId);
-    const json = await data.json();
 
-    setAllRelatedVideos(json.items);
-  }
   useEffect(() => {
+    async function getSuggesionVideos() {
+      const data = await fetch(RELATED_VIDEOD_API + videoId);
+      const json = await data.json();
+
+      setAllRelatedVideos(json.items);
+    }
     getSuggesionVideos();
   }, [videoId]);
   return (
@@ -45,6 +47,7 @@ const SuggesionVideos = ({ setId, videoId }) => {
                 <FaUserCircle className="m-1" />{" "}
                 <h1>{video.snippet.channelTitle}</h1>
               </div>
+              <h1 className="m-1">{timeAgo(video.snippet.publishedAt)}</h1>
             </div>
           </div>
         </div>

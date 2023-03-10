@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addMessage } from "../Shared/ChatSlice";
-import Store from "../Shared/Store";
+
 import { generateName, sentenceGenerate } from "./Config/helper";
 import LiveMessage from "./LiveMessage";
 
@@ -20,7 +20,7 @@ const LiveChat = () => {
       );
     }, 1000);
     return () => clearInterval(i);
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       {messages.map((m) => (

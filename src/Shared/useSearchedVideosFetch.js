@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { YOUTUBE_SEARCHED_VIDEO_API } from "../Components/Config/Constant";
 
 const useSearchedVideosFetch = (query, page) => {

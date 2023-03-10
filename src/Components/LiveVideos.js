@@ -16,7 +16,7 @@ const LiveVideos = () => {
   useEffect(() => {
     getLiveVideos();
   }, []);
-  return liveVideos.length == 0 ? (
+  return liveVideos.length === 0 ? (
     <Shimmer />
   ) : (
     <>

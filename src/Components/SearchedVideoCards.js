@@ -5,6 +5,7 @@ import { addWatchedVideos, removeWatchedVideo } from "../Shared/HistorySlice";
 import { Link } from "react-router-dom";
 import { BsArrowRepeat } from "react-icons/bs";
 import { CiCircleRemove } from "react-icons/ci";
+import { timeAgo } from "./Config/helper";
 
 function SearchedVideoCards({ video, videoType }) {
   console.log(video);
@@ -31,7 +32,7 @@ function SearchedVideoCards({ video, videoType }) {
       }
       className={
         videoType === "watched"
-          ? "w-[55rem]  h-40 p-4 m-3 shadow-2xl rounded-sm cursor-pointer"
+          ? "w-[57rem]  h-44 p-4 m-3 shadow-2xl rounded-sm cursor-pointer"
           : "w-full h-48 p-4 m-3 shadow-2xl rounded-sm cursor-pointer"
       }
     >
@@ -41,14 +42,13 @@ function SearchedVideoCards({ video, videoType }) {
           alt="thumbnail"
           src={video.snippet.thumbnails.medium.url}
         />
-        <div>
-          <h1 className="p-1 mx-2 font-semibold text-lg">
-            {video.snippet.title}
-          </h1>
-          <p className=" flex p-1 mx-2">
+        <div className="p-1 mx-2">
+          <h1 className="font-semibold text-lg p-1">{video.snippet.title}</h1>
+          <p className="flex p-1">
             <FaUserCircle className="m-1" /> {video.snippet.channelTitle}
           </p>
-          <p className="p-1 mx-2">{description}</p>
+          <p className="p-1">{description}</p>
+          <p className="p-1">{timeAgo(video.snippet.publishedAt)}</p>
         </div>
         {videoType === "watched" ? (
           <div className="flex">

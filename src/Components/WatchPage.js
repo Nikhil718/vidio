@@ -10,6 +10,7 @@ import LiveChat from "./LiveChat";
 import { useDispatch } from "react-redux";
 import { addMessage } from "../Shared/ChatSlice";
 import User from "../Assets/Images/user.jpg";
+import { calculateViews } from "./Config/helper";
 
 const WatchPage = () => {
   const [searchParms, setSearchParams] = useSearchParams();
@@ -18,12 +19,13 @@ const WatchPage = () => {
   const [text, setText] = useState("");
   const dispatch = useDispatch();
   const ID = searchParms.get("v");
-  async function getVideoDetails() {
-    const data = await fetch(VIDEO_BY_ID + ID);
-    const json = await data.json();
-    setVideoDetails(json.items[0]);
-  }
+
   useEffect(() => {
+    async function getVideoDetails() {
+      const data = await fetch(VIDEO_BY_ID + ID);
+      const json = await data.json();
+      setVideoDetails(json.items[0]);
+    }
     getVideoDetails();
   }, [ID]);
   return (
@@ -50,10 +52,10 @@ const WatchPage = () => {
               </div>
               <div className="flex ml-80">
                 <AiFillLike className="m-1" size={20} />
-                <h1>{videoDetails.statistics?.likeCount}</h1>
+                <h1>{calculateViews(videoDetails.statistics?.likeCount)}</h1>
                 <div className="flex mx-3">
                   <AiFillEye className="m-1" size={20} />
-                  <h1>{videoDetails.statistics?.viewCount}</h1>
+                  <h1>{calculateViews(videoDetails.statistics?.viewCount)}</h1>
                 </div>
                 <h1 className="mx-2  rounded-lg bg-red-900 p-1 text-white hover:cursor-pointer hover:bg-red-700">
                   Subscribe

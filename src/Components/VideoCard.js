@@ -2,9 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { FaUserCircle } from "react-icons/fa";
 import { AiFillEye } from "react-icons/ai";
+import { calculateViews, timeAgo } from "./Config/helper";
 
 const VideoCard = ({ snippet, statistics, videoType }) => {
   const isVisible = useSelector((store) => store.LeftHamburger.isVisible);
+  console.log(snippet?.publishedAt);
   var Title =
     snippet?.title?.length > 60
       ? snippet.title.substring(0, 70) + "....."
@@ -28,16 +30,20 @@ const VideoCard = ({ snippet, statistics, videoType }) => {
       </div>
       <div className="flex my-1">
         <h1 className="font-semibold text-sm">{Title}</h1>
-        {videoType == "live" ? (
+        {videoType === "live" ? (
           <h1 className="bg-red-500 text-center rounded-lg w-9 h-7 p-[0.2rem] ml-1 text-white">
             {snippet?.liveBroadcastContent.toUpperCase()}
           </h1>
         ) : null}
       </div>
-      {videoType == "popular" ? (
-        <h1 className="flex my-1">
-          {statistics?.viewCount} <AiFillEye className="m-1" size={20} />
-        </h1>
+      {videoType === "popular" ? (
+        <div className="flex">
+          <h1 className="flex my-1">
+            {calculateViews(statistics?.viewCount)}{" "}
+            <AiFillEye className="m-1" size={20} />
+          </h1>
+          <h1 className="px-2">{timeAgo(snippet?.publishedAt)}</h1>
+        </div>
       ) : null}
     </div>
   );
