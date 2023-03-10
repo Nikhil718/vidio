@@ -10,6 +10,7 @@ import VideoCard from "./VideoCard";
 const CardContainer = () => {
   const [allVideos, setAllVideos] = useState([]);
   const dispatch = useDispatch();
+  console.log(process.env.REACT_APP_API_KEY);
   const addToHistory = (video) => {
     dispatch(
       addWatchedVideos({
