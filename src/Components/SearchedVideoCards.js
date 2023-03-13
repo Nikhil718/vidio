@@ -32,7 +32,7 @@ function SearchedVideoCards({ video, videoType }) {
       }
       className={
         videoType === "watched"
-          ? "w-[60rem]  h-44 p-4 m-3 shadow-2xl rounded-sm cursor-pointer"
+          ? "w-[60rem]  h-48 p-4 m-3 shadow-2xl rounded-sm cursor-pointer"
           : "w-full h-48 p-4 m-3 shadow-2xl rounded-sm cursor-pointer"
       }
     >
