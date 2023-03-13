@@ -39,7 +39,9 @@ const SuggesionVideos = ({ setId, videoId }) => {
             />
             <div>
               {video.snippet.title.length > 50 ? (
-                <h1>{video.snippet.title.substring(0, 50) + "....."}</h1>
+                <h1 className="font-semibold">
+                  {video.snippet.title.substring(0, 50) + "....."}
+                </h1>
               ) : (
                 <h1>{video.snippet.title}</h1>
               )}

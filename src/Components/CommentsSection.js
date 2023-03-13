@@ -190,7 +190,7 @@ const Comments = ({ name, comment, replies }) => {
 const CommentsSection = () => {
   return (
     <div>
-      <p className="p-2 m-2 font-bold border-b-2">Comments</p>
+      <p className="p-2 m-2 font-bold border-b-2 ">Comments</p>
       <div>
         {commentsList.map((item) => (
           <Comments {...item} />

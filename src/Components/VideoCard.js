@@ -21,12 +21,13 @@ const VideoCard = ({ snippet, statistics, videoType }) => {
       }
     >
       <img
+        loading="lazy"
         className="rounded-md"
         alt="thumbnail"
         src={snippet?.thumbnails?.medium?.url}
       />
       <div className="flex">
-        <FaUserCircle className="m-1" /> <h1>{snippet.channelTitle}</h1>
+        <FaUserCircle className="m-1 text-sm" /> <h1>{snippet.channelTitle}</h1>
       </div>
       <div className="flex my-1">
         <h1 className="font-semibold text-sm">{Title}</h1>
@@ -42,7 +43,9 @@ const VideoCard = ({ snippet, statistics, videoType }) => {
             {calculateViews(statistics?.viewCount)}{" "}
             <AiFillEye className="m-1" size={20} />
           </h1>
-          <h1 className="px-2">{timeAgo(snippet?.publishedAt)}</h1>
+          <h1 className="px-2 my-1 opacity-70">
+            {timeAgo(snippet?.publishedAt)}
+          </h1>
         </div>
       ) : null}
     </div>

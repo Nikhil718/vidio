@@ -7,7 +7,12 @@ const HistorySlice = createSlice({
   },
   reducers: {
     addWatchedVideos: (state, action) => {
-      state.watchedVideos.push(action.payload);
+      const findIndex = state.watchedVideos.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (findIndex) {
+        state.watchedVideos.push(action.payload);
+      }
     },
     removeWatchedVideo: (state, action) => {
       const newList = state.watchedVideos.filter(

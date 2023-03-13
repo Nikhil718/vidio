@@ -1,6 +1,6 @@
 export const calculateViews = (views) => {
   try {
-    if (views < 1000) return views + " views";
+    if (views < 1000) return views;
     if (views > 999 && views < 1000000) {
       return (views / 1000).toPrecision(3) + "K";
     }

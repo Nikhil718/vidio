@@ -37,7 +37,7 @@ const appRouter = createBrowserRouter([
 
 function App() {
   return (
-    <div className="App">
+    <div className="App font-roboto">
       <RouterProvider router={appRouter} />
     </div>
   );

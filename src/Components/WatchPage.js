@@ -25,6 +25,7 @@ const WatchPage = () => {
       const data = await fetch(VIDEO_BY_ID + ID);
       const json = await data.json();
       setVideoDetails(json.items[0]);
+      console.log(json.items[0]);
     }
     getVideoDetails();
   }, [ID]);
@@ -99,19 +100,20 @@ const WatchPage = () => {
                 />
                 <button
                   onClick={() => {
-                    dispatch(
-                      addMessage({
-                        dp: (
-                          <img
-                            className="rounded-full h-6"
-                            alt="user"
-                            src={User}
-                          />
-                        ),
-                        name: "Nikhil Naik",
-                        message: text,
-                      })
-                    );
+                    text &&
+                      dispatch(
+                        addMessage({
+                          dp: (
+                            <img
+                              className="rounded-full h-6"
+                              alt="user"
+                              src={User}
+                            />
+                          ),
+                          name: "Nikhil Naik",
+                          message: text,
+                        })
+                      );
                     setText("");
                   }}
                 >
