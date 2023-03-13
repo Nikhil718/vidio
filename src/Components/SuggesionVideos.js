@@ -26,6 +26,7 @@ const SuggesionVideos = ({ setId, videoId }) => {
       setAllRelatedVideos(json.items);
     }
     getSuggesionVideos();
+    window.scrollTo(0, 0);
   }, [videoId]);
   return (
     <div className="my-2">
